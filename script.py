@@ -14,7 +14,7 @@ from sklearn.metrics import r2_score
 
 import uuid
 
-df = pd.read_csv('D:/GitHub/regression-challenge/regression-challenge/regression-challenge/regression-challenge-starter/admissions_data.csv')
+df = pd.read_csv('D:/GitHub/regression-challenge/regression-challenge/regression-challenge/admissions_data.csv')
 #print(df.head(25))
 #print(df.describe())
 #print(df.dtypes)
@@ -39,7 +39,7 @@ school_model.add(layers.Dropout(0.2))
 school_model.add(layers.Dense(1))
 #school_model.summary()
 
-opt = keras.optimizers.Adam(learning_rate=0.01)
+opt = keras.optimizers.Adam(learning_rate=0.001)
 school_model.compile(optimizer=opt, loss='mse', metrics=['mae'])
 
 stop = EarlyStopping(monitor='loss', mode='min', patience=10)
@@ -70,6 +70,6 @@ ax2.set_title('model loss')
 ax2.set_ylabel('loss')
 ax2.set_xlabel('epoch')
 ax2.legend(['train', 'validation'], loc='upper left')
-fig.savefig('images\plot_{}.png'.format(str(uuid.uuid4())))
+fig.savefig('D:/GitHub/regression-challenge/regression-challenge/regression-challenge/images/plot_{}.png'.format(str(uuid.uuid4())))
 plt.show()
 
